@@ -1,0 +1,23 @@
+{
+  "name": "mymetric",
+  "version": "0.0.1",
+  "description": "Countly custom my metric plugin.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Countly/countly-server.git"
+  },
+  "keywords": [
+    "mymetric"
+  ],
+  "author": "Serkan KOCAMAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Countly/countly-server/issues"
+  },
+  "homepage": "https://github.com/Countly/countly-server#readme",
+  "dependencies": {},
+  "private": true
+}

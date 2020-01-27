@@ -1,0 +1,46 @@
+<div class="widget">
+	<div class="widget-header">
+		<div class="left">
+			<div class="title">{{page-title}}</div>
+		</div>
+		{{> date-selector }}
+	</div>
+	{{#if graph-description}}
+    <div class="graph-description">{{graph-description}}</div>
+    {{/if}}
+	<div class="widget-content help-zone-vb" data-help-localize="help.{{{chart-helper}}}">
+        <div id="chartContainer" class="graph" style="width:95%; margin:30px; height:500px"></div>
+    </div>
+</div>
+<div class="dashboard-summary two-bars" id="bar-summary">
+    {{#each bars}}
+    <div class="item help-zone-vs overview-new-item" data-help-localize="help.{{this.help}}">
+        <div class="inner inner-new">
+            <div class="title title-new">{{this.title}}</div>
+            {{#if this.data}}
+            <div class="bar bar-new">
+                {{#each this.data}}
+                    <div class="bar-inner bar-inner-new" style="width:calc(100% - 30px);"
+                        data-item="{{#limitString this.name 15}}{{/limitString}}" data-percent="{{this.percent}}%">
+                            <div class="bar-inner-percent">{{this.percent}}%</div>
+                    </div>
+                {{/each}}
+            </div>
+            {{else}}
+            <div class="bar bar-new" style="width:100% !important">
+                <div class="bar-inner bar-inner-new-e" style="width:100%;text-align: center;background-color: #ececec;color:black;margin-left:0% !important" data-percent="0">
+                </div>
+                <div class="bar-inner bar-inner-new-e" style="width:100%;text-align: center;background-color: #ececec;color:black;margin-left:0% !important"
+                    data-item="" data-localize="common.bar.no-data" data-percent="0">
+                </div>
+                <div class="bar-inner bar-inner-new-e" style="width:100%;text-align: center;background-color: #ececec;color:black;margin-left:0% !important" data-percent="0">
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+<div>
+    <table id="mymetricDataTableOne" class="d-table help-zone-vb" cellpadding="0" cellspacing="0" data-help-localize="help.{{{table-helper}}}"></table>
+</div>

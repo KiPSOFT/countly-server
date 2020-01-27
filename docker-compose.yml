@@ -15,6 +15,8 @@ services:
       - MONGODB_DATABASE
     volumes:
       - 'mongodb_data:/bitnami'
+    ports:
+      - '27017:27017'
     networks:
       countly:
 
@@ -22,7 +24,7 @@ services:
     image: 'countly/api:19.08.1'
     # Enterprise Edition: image: 'gcr.io/countly-01/api:19.08.1'
     environment:
-      - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,enterpriseinfo,logger,systemlogs,errorlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,assistant,plugin-upload,times-of-day,compliance-hub,video-intelligence-monetization,alerts,onboarding"
+      - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,enterpriseinfo,logger,systemlogs,errorlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,assistant,plugin-upload,times-of-day,compliance-hub,video-intelligence-monetization,alerts,onboarding,mymetric
       # Enterprise Edition: - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,drill,funnels,concurrent_users,retention_segments,revenue,logger,systemlogs,errorlogs,populator,reports,crashes,push,block,restrict,users,geo,star-rating,slipping-away-users,compare,server-stats,dashboards,assistant,flows,dbviewer,cohorts,crash_symbolication,crashes-jira,groups,white-labeling,plugin-upload,alerts,times-of-day,compliance-hub,onboarding,remote-config,formulas,ab-testing
       - COUNTLY_CONFIG_API_MONGODB_HOST=mongodb
       - COUNTLY_CONFIG_API_MONGODB_USERNAME=${MONGODB_USERNAME}
@@ -47,7 +49,7 @@ services:
     image: 'countly/frontend:19.08.1'
     # Enterprise Edition: image: 'gcr.io/countly-01/api:19.08.1'
     environment:
-      - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,enterpriseinfo,logger,systemlogs,errorlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,assistant,plugin-upload,times-of-day,compliance-hub,video-intelligence-monetization,alerts,onboarding"
+      - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,enterpriseinfo,logger,systemlogs,errorlogs,populator,reports,crashes,push,star-rating,slipping-away-users,compare,server-stats,dbviewer,assistant,plugin-upload,times-of-day,compliance-hub,video-intelligence-monetization,alerts,onboarding,mymetric
       # Enterprise Edition: - COUNTLY_PLUGINS=mobile,web,desktop,plugins,density,locale,browser,sources,views,drill,funnels,concurrent_users,retention_segments,revenue,logger,systemlogs,errorlogs,populator,reports,crashes,push,block,restrict,users,geo,star-rating,slipping-away-users,compare,server-stats,dashboards,assistant,flows,dbviewer,cohorts,crash_symbolication,crashes-jira,groups,white-labeling,plugin-upload,alerts,times-of-day,compliance-hub,onboarding,remote-config,formulas,ab-testing
       - COUNTLY_CONFIG_API_MONGODB_HOST=mongodb
       - COUNTLY_CONFIG_API_MONGODB_USERNAME=${MONGODB_USERNAME}
